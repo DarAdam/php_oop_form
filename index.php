@@ -14,8 +14,8 @@ class Controler {
 
 	public $data = [];
 
-  	public function show_view($view=0) {
-    	require 'view/'.(($view!==0 )? 'first_page':'login').'.php';
+  	public function show_view($view) {
+    	require 'view/'.$view.'.php';
   	}
 }
 
@@ -24,17 +24,16 @@ class Controler {
 // $c -> index();
 
 if (isset($_GET['c']) && isset($_GET['m'])) {
-			var_dump('ovde sam');
+			
 			$controler = $_GET['c'];
 			$method = $_GET['m'];
 			include 'controler/'.$controler.'.php';
 			$c = new $controler;
 			$c->$method();
 		} else {
-			// $controler = 'Login';
-			// include 'controler/'.$controler.'.php';
-			$c = new Controler;
-			$c->show_view();
+			include 'controler/login.php';
+			$c = new Login;
+			$c->index();
 		}
 
  ?>
