@@ -2,7 +2,7 @@
 
 class DataUsers {
 	public static function login_data_check($username, $password) {
-		$file = 'C:\wamp64\www\php_oop_form\data\users.txt';
+		$file = ROOT_DIR. '/php_oop_form\data\users.txt';
 		$data = fopen($file, 'r');
 		$users = array();
 		while (!feof($data)) {
